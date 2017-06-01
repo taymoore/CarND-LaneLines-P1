@@ -1,4 +1,4 @@
-Please find my writeup in the PDF Finding Lane Lines on the Road.pdf
+## Please find my writeup in the PDF Finding Lane Lines on the Road.pdf
 
 **Finding Lane Lines on the Road** 
 Writeup for Udacity's Self-driving car program
@@ -27,12 +27,18 @@ The second pass-through of a Hough transformation allows detecting of larger lin
 By finding the longest line with a positive slope (between 0.4 and 0.8) and the longest line with a negative slope, we can find the most reasonable line to represent the overall lanes. See the white line in the above image.
 # 2. Shortcomings
 The shortcomings of the program is,
+
 •	it does not consider the previous frame’s solution to find a solution nearby, weight it’s previous solution, or average them. Without this, the current program provides jittery and erratic performance.
+
 •	It does not restrict the left or right lane to the left or right side of the screen. Occasionally with difficult terrain, the only upward sloping line is in the centre or right side of the screen which should cause a rejected line.
+
 •	It should weigh lines at an optimal slope higher than lines in a sub-optimal trajectory, in stead of rejecting them outright. Lines within the acceptable limits are sometimes permitted even though they are erroneous.
  
 # 3. Suggest possible improvements to your pipeline
 Potential improvements include,
+
 •	Considering the previous frame’s solution to weigh a line nearby higher than a line further away. This would reduce jitter.
+
 •	Restricting upward facing lines to the left side of the screen while restricting downward facing lines to the right side of the screen.
+
 •	Weigh lines in the expected trajectory higher than non-optimal trajectory lines.
